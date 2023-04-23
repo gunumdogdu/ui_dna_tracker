@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeadlineText extends StatelessWidget {
-  HeadlineText({
+  const HeadlineText({
     super.key,
     required this.title,
   });

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_dna_tracker/product/languages/languages.dart';
 import 'package:ui_dna_tracker/view/onboarding_screen.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DNA TRACKER UI',
+      title: LanguageItems.systemTitle,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
