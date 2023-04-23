@@ -5,13 +5,15 @@ import '../../view/profile_section_screen.dart';
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({
     super.key,
-    required this.title,
-    required this.top,
-    required this.bottom,
+    required this.leading,
+    required this.topPadding,
+    required this.bottomPadding,
+    required this.buttonWidth,
   });
 
-  final String title;
-  final double top, bottom;
+  final Widget leading;
+  final double topPadding, bottomPadding;
+  final double buttonWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class GetStartedButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
-          minimumSize: const Size(double.infinity, 0),
+          minimumSize: Size(buttonWidth, 20),
           elevation: 0,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -52,13 +54,13 @@ class GetStartedButton extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const ProfileSectionScreen(),
+              builder: (context) => ProfileSectionScreen(),
             ),
           );
         },
         child: Padding(
-          padding: EdgeInsets.only(top: top, bottom: bottom),
-          child: Text(title),
+          padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
+          child: leading,
         ),
       ),
     );

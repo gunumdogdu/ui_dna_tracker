@@ -35,9 +35,12 @@ class OnBoardingScreen extends StatelessWidget {
               const MainBodyWidget(body: LanguageItems.subtitleText),
               const Spacer(),
               GetStartedButton(
-                title: LanguageItems.mainButtonText,
-                top: DoublePaddings().globalPaddingDouble / 2,
-                bottom: DoublePaddings().globalPaddingDouble / 2,
+                buttonWidth: double.infinity,
+                leading: Text(
+                  LanguageItems.mainButtonText,
+                ),
+                topPadding: DoublePaddings().globalPaddingDouble / 2,
+                bottomPadding: DoublePaddings().globalPaddingDouble / 2,
               )
             ],
           ),
