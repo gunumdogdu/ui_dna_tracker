@@ -1,8 +1,15 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ui_dna_tracker/view/profile_section_screen.dart';
 
+import '../core/components/bodytext.dart';
+import '../core/components/get_started_button.dart';
 import '../core/components/headlinetext.dart';
+import '../core/utility/general_sizedbox_vertical.dart';
+import '../core/utility/global_padding.dart';
+import '../core/utility/image_pngs.dart';
+import '../core/utility/main_texts.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -30,46 +37,10 @@ class OnBoardingScreen extends StatelessWidget {
               GeneralSizedBoxV().generalSizedBoxV,
               MainBodyWidget(body: MainText().subtitleText),
               const Spacer(),
-              DecoratedBox(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment(0.9, 0.1),
-                    colors: [
-                      Color(0xFFfe9d4c),
-                      Colors.orange,
-                      Color(0xFFfe9d4c),
-                      Colors.orange,
-                      Color(0xFFfe9d4c),
-                      Color(0xFF0d64bf),
-                    ],
-                    tileMode: TileMode.mirror,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(16),
-                  ),
-                ),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    minimumSize: const Size(double.infinity, 0),
-                    elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
-                    textStyle: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                  ),
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
-                    child: Text('Get Started'),
-                  ),
-                ),
+              GetStartedButton(
+                title: MainText().mainButtonText,
+                top: DoublePaddings().globalPaddingDouble / 2,
+                bottom: DoublePaddings().globalPaddingDouble / 2,
               )
             ],
           ),
@@ -77,43 +48,4 @@ class OnBoardingScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class MainBodyWidget extends StatelessWidget {
-  const MainBodyWidget({
-    super.key,
-    required this.body,
-  });
-  final String body;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      body,
-      style: Theme.of(context)
-          .textTheme
-          .titleLarge!
-          .copyWith(color: Colors.black54),
-    );
-  }
-}
-
-class MainText {
-  final String headlineText = 'DNA Checkup';
-  final String subtitleText =
-      'Unlock insights into your health and wellness, and discover your ancestry';
-}
-
-class ImagePNG {
-  final Image pngDnaImage = Image.asset(
-    '/Users/emirgunumdogdu/Documents/dev/ui_dna_tracker/assets/png/daco_dna.png',
-  );
-}
-
-class GeneralSizedBoxV {
-  final SizedBox generalSizedBoxV = const SizedBox(height: 16);
-}
-
-class GlobalPadding {
-  final globalPadding = const EdgeInsets.only(left: 32, right: 32);
 }
