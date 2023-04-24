@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_dna_tracker/product/languages/languages.dart';
+import 'package:ui_dna_tracker/view/profile_section_screen.dart';
 
 import '../core/components/bodytext.dart';
 import '../core/components/get_started_button.dart';
@@ -36,9 +37,16 @@ class OnBoardingScreen extends StatelessWidget {
               const Spacer(),
               GetStartedButton(
                 buttonWidth: double.infinity,
-                leading: Text(
+                leading: const Text(
                   LanguageItems.mainButtonText,
                 ),
+                route: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfileSectionScreen()),
+                  );
+                },
                 topPadding: DoublePaddings().globalPaddingDouble / 2,
                 bottomPadding: DoublePaddings().globalPaddingDouble / 2,
               )

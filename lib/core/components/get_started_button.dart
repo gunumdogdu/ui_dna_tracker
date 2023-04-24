@@ -9,30 +9,28 @@ class GetStartedButton extends StatelessWidget {
     required this.topPadding,
     required this.bottomPadding,
     required this.buttonWidth,
+    required this.route,
   });
 
   final Widget leading;
   final double topPadding, bottomPadding;
   final double buttonWidth;
+  final VoidCallback route;
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment(0.9, 0.1),
+      decoration: BoxDecoration(
+        gradient: SweepGradient(
+          stops: const [0.1, 0.6, 0.9],
           colors: [
-            Color(0xFFfe9d4c),
+            const Color(0xFFfe9d4c),
+            const Color(0xFF0d64bf).withOpacity(0.6),
             Colors.orange,
-            Color(0xFFfe9d4c),
-            Colors.orange,
-            Color(0xFFfe9d4c),
-            Color(0xFF0d64bf),
           ],
           tileMode: TileMode.mirror,
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(16),
         ),
       ),
@@ -51,13 +49,7 @@ class GetStartedButton extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
         ),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => ProfileSectionScreen(),
-            ),
-          );
-        },
+        onPressed: route,
         child: Padding(
           padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
           child: leading,

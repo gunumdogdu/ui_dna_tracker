@@ -3,11 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:ui_dna_tracker/core/components/get_started_button.dart';
 
 import 'package:ui_dna_tracker/core/utility/general_sizedbox_vertical.dart';
+import 'package:ui_dna_tracker/core/utility/global_padding.dart';
 import 'package:ui_dna_tracker/core/utility/image_pngs.dart';
+import 'package:ui_dna_tracker/product/languages/languages.dart';
 
+import '../core/components/bottom_navigation.dart';
 import '../core/components/custom_appbar.dart';
+import '../core/components/custom_contact_info.dart';
+import '../core/components/gender_age_sub.dart';
+import '../core/components/profile_screen_list_items.dart';
+import '../core/components/progress_container.dart';
 
-//// UNDER CONSTRUCTION PAGE--- TODO  ADD BOTTOM NAVIGATION BAR!
+//// UNDER CONSTRUCTION PAGE--- TODO ADD BOTTOM NAVIGATION BAR!
 
 class ProfileSectionScreen extends StatelessWidget {
   const ProfileSectionScreen({super.key});
@@ -17,12 +24,12 @@ class ProfileSectionScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Padding(
-        padding: const EdgeInsets.only(left: 24, right: 24),
+        padding: GlobalPadding().globalPadding,
         child: Column(
           children: [
             Center(
               child: Container(
-                padding: const EdgeInsets.all(8.0),
+                padding: GlobalPadding().standartPadding,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(
                       Radius.circular(
@@ -48,214 +55,51 @@ class ProfileSectionScreen extends StatelessWidget {
                   color: Colors.black.withOpacity(0.70)),
             ),
             GeneralSizedBoxV().generalSizedBoxVhalf,
-            Text(
-              'Male, 24 years old',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(fontWeight: FontWeight.w500),
-            ),
+            const GenderAgeSubtitle(ageGenderInfo: 'Male, 24 years old'),
             GeneralSizedBoxV().generalSizedBoxVdouble,
-            Container(
-              padding: const EdgeInsets.only(
-                  right: 16, left: 16, top: 16, bottom: 16),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(12),
-                  ),
-                  color: Colors.grey[200]),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on_outlined,
-                        color: Colors.black87,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        'Muratpasa, Antalya, Turkey',
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        CupertinoIcons.phone,
-                        color: Colors.black87,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        '+90 555 555 55 55',
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontWeight: FontWeight.bold, color: Colors.black54),
-                      )
-                    ],
-                  )
-                ],
-              ),
+            const CustomContactInfo(
+              location: 'Muratpasa, Antalya, Turkey',
+              phone: '+90 555 555 55 55',
             ),
             GeneralSizedBoxV().generalSizedBoxVhalf,
-            Container(
-              padding: const EdgeInsets.only(
-                  right: 16, left: 16, top: 16, bottom: 16),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(12),
-                ),
-                color: Colors.grey[200],
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    'Progress 3/5',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontWeight: FontWeight.bold, color: Colors.black54),
-                  ),
-                  const Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: LinearProgressIndicator(
-                        value: 0.3,
-                        color: Color(0xFF0d64bf),
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          0.3 < 1 ? Color(0xFFfe9d4c) : Color(0xFFfe9d4c),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            const ProgressContainer(),
             Column(
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'DNA Reports',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(color: Colors.grey),
-                    ),
-                    const Spacer(),
-                    Text(
-                      '87',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    SizedBox(
-                      width: 24,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.chevron_right,
-                          color: Colors.grey,
-                          size: 28,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                const ProfileScreenListItems(title: LanguageItems.dnaReports),
                 const Divider(height: 4),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'DNA Reports',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(color: Colors.grey),
-                    ),
-                    const Spacer(),
-                    Text(
-                      '10',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    SizedBox(
-                      width: 24,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.chevron_right,
-                          color: Colors.grey,
-                          size: 28,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                const ProfileScreenListItems(title: LanguageItems.highRisk),
                 const Divider(
                   height: 4,
                 ),
+                const ProfileScreenListItems(title: LanguageItems.recom),
+                GeneralSizedBoxV().generalSizedBoxVdouble,
                 Row(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'DNA Reports',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .copyWith(color: Colors.grey),
-                    ),
-                    const Spacer(),
-                    Text(
-                      '5',
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                    SizedBox(
-                      width: 24,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.chevron_right,
-                          color: Colors.grey,
-                          size: 28,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                GeneralSizedBoxV().generalSizedBoxValmostdouble,
-                Row(
-                  children: const [
                     GetStartedButton(
-                      leading: Text(
-                        'Get Started',
+                      route: () {},
+                      leading: const Text(
+                        LanguageItems.mainButtonText,
                       ),
                       topPadding: 0,
                       bottomPadding: 0,
                       buttonWidth: 280,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     GetStartedButton(
-                      leading: Icon(Icons.share),
+                      route: () {},
+                      leading: const Icon(Icons.share),
                       topPadding: 0,
                       bottomPadding: 0,
                       buttonWidth: 50,
                     )
                   ],
-                )
+                ),
               ],
             ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }
