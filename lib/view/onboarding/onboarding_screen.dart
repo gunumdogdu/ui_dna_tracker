@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ui_dna_tracker/product/languages/languages.dart';
-import 'package:ui_dna_tracker/view/profile_section_screen.dart';
+import 'package:ui_dna_tracker/view/profile/profile_section_screen.dart';
 
-import '../core/components/bodytext.dart';
-import '../core/components/get_started_button.dart';
-import '../core/components/headlinetext.dart';
-import '../core/utility/general_sizedbox_vertical.dart';
-import '../core/utility/global_padding.dart';
-import '../core/utility/image_pngs.dart';
+import '../../product/components/bodytext.dart';
+import '../../product/components/get_started_button.dart';
 
-class OnBoardingScreen extends StatelessWidget {
+import '../../product/components/headlinetext.dart';
+import '../../product/utility/general_sizedbox_vertical.dart';
+import '../../product/utility/global_padding.dart';
+import '../../product/utility/image_pngs.dart';
+
+class OnBoardingScreen extends StatelessWidget with NavigatorManager {
   const OnBoardingScreen({super.key});
 
   @override
@@ -41,10 +42,9 @@ class OnBoardingScreen extends StatelessWidget {
                   LanguageItems.mainButtonText,
                 ),
                 route: () {
-                  Navigator.push(
+                  navigateToWidget(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const ProfileSectionScreen()),
+                    const ProfileSectionScreen(),
                   );
                 },
                 topPadding: DoublePaddings().globalPaddingDouble / 2,
@@ -54,6 +54,14 @@ class OnBoardingScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+mixin NavigatorManager {
+  void navigateToWidget(BuildContext context, Widget widget) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => widget, fullscreenDialog: true),
     );
   }
 }

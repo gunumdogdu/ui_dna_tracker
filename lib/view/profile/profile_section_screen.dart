@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_dna_tracker/core/components/get_started_button.dart';
+import 'package:ui_dna_tracker/product/components/get_started_button.dart';
 
-import 'package:ui_dna_tracker/core/utility/general_sizedbox_vertical.dart';
-import 'package:ui_dna_tracker/core/utility/global_padding.dart';
-import 'package:ui_dna_tracker/core/utility/image_pngs.dart';
+import 'package:ui_dna_tracker/product/utility/general_sizedbox_vertical.dart';
+import 'package:ui_dna_tracker/product/utility/global_padding.dart';
+import 'package:ui_dna_tracker/product/utility/image_pngs.dart';
 import 'package:ui_dna_tracker/product/languages/languages.dart';
 
-import '../core/components/bottom_navigation.dart';
-import '../core/components/custom_appbar.dart';
-import '../core/components/custom_contact_info.dart';
-import '../core/components/gender_age_sub.dart';
-import '../core/components/profile_screen_list_items.dart';
-import '../core/components/progress_container.dart';
+import '../../product/components/bottom_navigation.dart';
+import '../../product/components/custom_appbar.dart';
+import '../../product/components/custom_contact_info.dart';
+import '../../product/components/gender_age_sub.dart';
+import '../../product/components/profile_screen_list_items.dart';
+import '../../product/components/progress_container.dart';
 
 //// UNDER CONSTRUCTION PAGE--- TODO ADD BOTTOM NAVIGATION BAR!
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../view/profile_section_screen.dart';
-
 class GetStartedButton extends StatelessWidget {
   const GetStartedButton({
     super.key,

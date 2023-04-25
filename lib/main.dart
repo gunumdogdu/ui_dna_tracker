@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_dna_tracker/product/languages/languages.dart';
-import 'package:ui_dna_tracker/view/onboarding_screen.dart';
+import 'package:ui_dna_tracker/view/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
